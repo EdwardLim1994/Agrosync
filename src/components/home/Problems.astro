@@ -1,0 +1,62 @@
+---
+const info = [
+	{
+		title: "Resource Inefficiency",
+		key: "resource-inefficiency",
+		description: "Streamline resource allocation with AI-driven insights",
+		image: "/problems/point-1.jpg",
+	},
+	{
+		title: "Climate Uncertainty",
+		key: "climate-uncertainty",
+		description:
+			"Mitigate risks through predictive analytics for weather patterns",
+		image: "/problems/point-2.jpg",
+	},
+	{
+		title: "Crop Monitoring",
+		key: "crop-monitoring",
+		description:
+			"Enhance surveillance for early detection of pests and diseases",
+		image: "/problems/point-3.jpg",
+	},
+	{
+		title: "Labor Shortages",
+		key: "labor-shortages",
+		description: "Automate routine tasks to overcome workforce challenges",
+		image: "/problems/point-4.jpg",
+	},
+];
+---
+
+<h1
+	transition:name='problems-title'
+	class='text-4xl font-bold text-center mb-8 text-white uppercase mb-12'
+>
+	Challenges We Address
+</h1>
+
+<article class='grid lg:grid-cols-5 h-full gap-5 rounded-lg'>
+	{
+		info.map((i, index) => (
+			<a
+				href={`/problems#${i.key}`}
+				class={`w-full h-[30rem] relative shadow-lg hover:shadow-xl overflow-hidden ${
+					index == 0 || index == 3 ? "lg:col-span-2" : "lg:col-span-3"
+				} `}
+			>
+				<img
+					transition:name={`problems-${i.key}`}
+					class='w-full h-full rounded-lg hover:scale-110 object-cover'
+					src={i.image}
+				/>
+				<div class='rounded-b-lg p-6 absolute bottom-0 bg-gray-500/30 backdrop-blur-lg w-full white h-[10rem] z-10'>
+					<h3 class='text-3xl font-semibold mb-4 text-white'>
+						{i.title}
+					</h3>
+					<p class='text-white opacity-75'>{i.description}</p>
+				</div>
+			</a>
+		))
+	}
+</article>

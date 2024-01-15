@@ -1,0 +1,114 @@
+---
+import BaseLayout from "../layouts/BaseLayout.astro";
+import BlogLayout from "../layouts/BlogLayout.astro";
+import Article from "../components/Article.astro";
+
+const info = [
+	{
+		title: "Resource Inefficiency",
+		key: "resource-inefficiency",
+		content:
+			"Traditional farming often leads to suboptimal use of resources. AgroSync tackles this by offering AI-driven insights that empower farmers to allocate resources efficiently, maximizing yields while minimizing waste.",
+		image: "/problems/point-1.jpg",
+	},
+	{
+		title: "Climate Uncertainty",
+		key: "climate-uncertainty",
+		content:
+			"With climate patterns becoming increasingly unpredictable, farmers face heightened risks. AgroSync confronts this issue head-on, providing predictive analytics that enable farmers to anticipate and adapt to changing weather conditions.",
+		image: "/problems/point-2.jpg",
+	},
+	{
+		title: "Crop Monitoring",
+		key: "crop-monitoring",
+		content:
+			"The threat of pests and diseases looms large over crops. AgroSync introduces advanced surveillance tools that utilize AI to detect early signs of trouble, allowing for timely intervention and crop protection.",
+		image: "/problems/point-3.jpg",
+	},
+	{
+		title: "Labor Shortages",
+		key: "labor-shortages",
+		content:
+			"As labor shortages persist, AgroSync pioneers automation solutions that automate routine tasks, alleviating the burden on farmers and ensuring productivity remains unaffected. Suitable Image Suggestion: A visual representation of each problem: an image for inefficient resource use, weather patterns causing uncertainty, a crop under surveillance for monitoring, and a depiction of a labor shortage on a farm.",
+		image: "/problems/point-4.jpg",
+	},
+];
+---
+
+<BaseLayout pageTitle='Agrosync - Problems'>
+	<BlogLayout
+		transitionFrom='problem-title'
+		classes='max-w-screen-lg'
+		cover='/problems/problem-cover.jpg'
+		title='Challenges We Address'
+		subtitle='Unveiling Agricultural Challenges: Paving the Way for Technological Solutions'
+	>
+		<Article>
+			<Fragment slot='title'>
+				Introduction: Navigating the Landscape of Agricultural
+				Challenges
+			</Fragment>
+			<p class='text-xl'>
+				In the vast expanses where crops sway with the wind and fields
+				stretch to the horizon, agriculture has long been the backbone
+				of our civilization. However, as we delve deeper into the
+				complexities, challenges have emerged that demand innovative
+				solutions. AgroSync takes center stage, addressing these issues
+				with groundbreaking technology that redefines the future of
+				farming.
+			</p>
+		</Article>
+		<Article>
+			<Fragment slot='title'>
+				Problems in Agriculture: A Call to Action
+			</Fragment>
+			The agricultural sector grapples with multifaceted challenges, each presenting
+			a barrier to sustainable and efficient farming.
+		</Article>
+
+		<section class='grid gap-y-4 mb-8'>
+			{
+				info.map((i) => (
+					<div class='flex flex-col lg:flex-row gap-x-6' id={i.key}>
+						<img
+							class='rounded-lg shadow-lg lg:w-1/3'
+							transition:name={`problems-${i.key}`}
+							src={i.image}
+							alt={`Image of ${i.title}`}
+						/>
+						<div class='py-6 lg:py-0'>
+							<h4 class='text-2xl font-semibold mb-4'>
+								{i.title}
+							</h4>
+							<p class='text-xl'>{i.content}</p>
+						</div>
+					</div>
+				))
+			}
+		</section>
+		<Article>
+			<Fragment slot='title'>
+				Conclusion: Paving the Way for Agricultural Transformation
+			</Fragment>
+			<p class='text-xl'>
+				In conclusion, the challenges embedded in traditional farming
+				are not insurmountable obstacles but rather opportunities for
+				innovation. AgroSync rises to the occasion, offering
+				technological solutions that not only address these challenges
+				but propel agriculture into a future where efficiency,
+				sustainability, and productivity coexist harmoniously.
+			</p>
+		</Article>
+	</BlogLayout>
+
+	<script is:inline>
+		(function () {
+			const hash = window.location.hash.substr(1);
+
+			if (hash)
+				document
+					.getElementById(hash)
+					.scrollIntoView({ behavior: "smooth" });
+		})();
+	</script>
+</BaseLayout>

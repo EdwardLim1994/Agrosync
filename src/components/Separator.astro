@@ -1,0 +1,17 @@
+---
+const { words } = Astro.props;
+---
+
+<div class='flex w-full items-center gap-x-4 px-4 py-5'>
+	<hr class='w-full border-2' />
+	{
+		words ? (
+			<>
+				<p class='opacity-[50%] text-xl font-semibold'>{words}</p>
+				<hr class='w-full border-2' />
+			</>
+		) : (
+			""
+		)
+	}
+</div>

@@ -1,0 +1,34 @@
+---
+import { Icon } from "astro-icon/components";
+import Container from "../components/Container.astro";
+
+const { transitionFrom, cover, title, subtitle, classes } = Astro.props;
+---
+
+<div
+	transition:name={transitionFrom}
+	class='h-[30rem] bg-cover bg-center relative'
+	style={`background-image: url('${cover}');`}
+>
+	<div
+		class='absolute bottom-0 p-8 bg-gray-700/60 backdrop-blur-lg w-full space-y-3'
+	>
+		<h1 class='text-white text-7xl font-bold uppercase'>{title}</h1>
+		<h2 class='text-white text-xl font-semibold'>
+			{subtitle}
+		</h2>
+	</div>
+</div>
+
+<article>
+	<Container classes={`pt-3 ${classes}`}>
+		<a
+			href='/'
+			class='flex items-center w-1/6 gap-x-4 italic hover:opacity-60 inline-block w-auto mb-8'
+		>
+			<Icon class='text-xl' name='mdi:arrow-left' />Back to home
+		</a>
+
+		<slot />
+	</Container>
+</article>

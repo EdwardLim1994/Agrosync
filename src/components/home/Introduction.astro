@@ -1,0 +1,60 @@
+---
+import Badge from "../Badge.astro";
+import Link from "../Link.astro";
+import Separator from "../Separator.astro";
+import Container from "../Container.astro";
+---
+
+<Container classes='md:flex w-full gap-x-6 bg-white'>
+	<div class='md:w-1/2 flex relative'>
+		<img
+			class='rounded-lg w-full lg:w-[95%] object-cover h-full shadow-lg md:shadow-none'
+			src='/home/farm.jpg'
+		/>
+	</div>
+	<article class='md:w-1/2 p-6 space-y-6 my-auto'>
+		<Badge classes=' border-gray-900'>
+			<h5>Introduction</h5>
+		</Badge>
+		<h2 class='text-4xl font-bold'>Introducing Agrosync</h2>
+		<p class='text-lg'>
+			Unlocking the Future of Farming Immerse yourself in the cutting-edge
+			world of agriculture transformation. Our technology blends
+			innovation with nature, using advanced AI to cultivate a smarter,
+			sustainable future. Harness the power of intelligence and automation
+			as we pave the way for the evolution of modern farming.
+		</p>
+	</article>
+</Container>
+<div class='py-6'>
+	<Separator />
+</div>
+<!-- how agrisense help solving problem -->
+<Container classes='flex flex-col md:flex-row w-full gap-x-6 bg-white'>
+	<article class='order-2 md:order-1 md:w-1/2 p-6 space-y-6 my-auto'>
+		<Badge classes=' border-gray-900'>
+			<h5>Purpose</h5>
+		</Badge>
+		<h2 class='text-4xl font-bold text-center md:text-left'>
+			Why Agrosync?
+		</h2>
+		<p class='text-lg'>
+			Elevating Agriculture through Technology At AgroSync, we believe in
+			cultivating a future where agriculture meets the digital age. Our
+			state-of-the-art technology integrates artificial intelligence
+			seamlessly into farming practices, empowering growers to make
+			informed decisions, optimize resources, and achieve unparalleled
+			yields. Step into the future of farming with us.
+			<br />
+			<br />
+			<Link href='/introduction'>Learn more</Link>
+		</p>
+	</article>
+	<div class='order-1 md:order-2 md:w-1/2 flex relative'>
+		<img
+			transition:name='introduction-cover'
+			class='rounded-lg w-full shadow-lg md:shadow-none'
+			src='/home/urban-farming.jpg'
+		/>
+	</div>
+</Container>

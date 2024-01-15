@@ -1,0 +1,130 @@
+---
+import { Icon } from "astro-icon/components";
+
+type Links = {
+	name: string;
+	transitionName: string;
+	icon?: string;
+	href: string;
+};
+
+export const links: Links[] = [
+	{
+		name: "Home",
+		transitionName: "home",
+		href: "/",
+	},
+	{
+		name: "Introduction",
+		transitionName: "intro",
+		href: "/introduction",
+	},
+	{
+		name: "Problems",
+		transitionName: "problems",
+		href: "/problems",
+	},
+	{
+		name: "Strategies",
+		transitionName: "strategies",
+		href: "/strategies",
+	},
+	{
+		name: "Contact us",
+		id: "contact-us",
+		href: "/contact-us",
+	},
+];
+
+const currentPath = Astro.url.pathname;
+---
+
+<navigation-menu>
+	<button
+		class='m-6 p-3 rounded-full text-xl text-white bg-gray-400'
+		id='open-modal-trigger'
+	>
+		<Icon id='menu-open-icon' name='mdi:menu' />
+	</button>
+	<dialog
+		id='navigation'
+		class='m-6 p-6 w-full h-full rounded-lg bg-white/75 backdrop-blur-lg'
+	>
+		<div class='w-full flex justify-end'>
+			<button
+				id='close-modal-trigger'
+				class='p-3 rounded-full text-xl text-white bg-gray-400'
+			>
+				<Icon id='close-icon' name='mdi:close' />
+			</button>
+		</div>
+		<nav class='h-[80%]'>
+			<ul
+				class='w-full h-full flex flex-col gap-y-4 items-center justify-center'
+			>
+				{
+					links.map((link) => (
+						<li
+							class='text-3xl nav-link hover:font-bold'
+							class:list={[
+								{ "font-semibold": currentPath == link.href },
+							]}
+						>
+							{link?.transitionName ? (
+								<a
+									transition:name={link.transitionName}
+									href={link.href}
+								>
+									{link.name}
+								</a>
+							) : (
+								<a href='#contact-us'>{link.name}</a>
+							)}
+						</li>
+					))
+				}
+			</ul>
+		</nav>
+	</dialog>
+</navigation-menu>
+
+<script>
+	class NavigationMenu extends HTMLElement {
+		navigationEl;
+		navLinkEl;
+		openModalBtnEl;
+		closeModalBtnEl;
+
+		constructor() {
+			super();
+
+			this.openModalBtnEl = this.querySelector("#open-modal-trigger");
+			this.closeModalBtnEl = this.querySelector("#close-modal-trigger");
+			this.navigationEl = this.querySelector("#navigation");
+			this.navLinkEl = this.querySelectorAll(".nav-link");
+
+			this.navLinkEl.forEach((link) =>
+				link.addEventListener("click", this.dismissModal.bind(this))
+			);
+
+			this.openModalBtnEl?.addEventListener(
+				"click",
+				this.openModal.bind(this)
+			);
+			this.closeModalBtnEl?.addEventListener(
+				"click",
+				this.dismissModal.bind(this)
+			);
+		}
+
+		dismissModal() {
+			this.navigationEl?.close();
+		}
+
+		openModal() {
+			this.navigationEl?.showModal();
+		}
+	}
+
+	customElements.define("navigation-menu", NavigationMenu);
+</script>

@@ -1,0 +1,91 @@
+---
+import BaseLayout from "../layouts/BaseLayout.astro";
+import BlogLayout from "../layouts/BlogLayout.astro";
+import Article from "../components/Article.astro";
+
+const info = [
+	{
+		title: "Precision Agriculture",
+		key: "precision-agriculture",
+		content:
+			"AgroSync redefines farming with precision agriculture, where each action is guided by data-driven insights. Imagine a world where farmers make informed decisions based on real-time analytics, optimizing crop yields and resource utilization.",
+	},
+	{
+		title: "Smart Irrigation",
+		key: "smart-irrigation",
+		content:
+			"Water, a precious resource, is optimized through smart irrigation. AgroSync introduces real-time monitoring that ensures water is used efficiently, reducing waste and promoting sustainable practices..",
+	},
+	{
+		title: "Predictive Analytics",
+		key: "predictive-analytics",
+		content:
+			"Anticipating market trends becomes a reality with predictive analytics. AgroSync empowers farmers with insights that go beyond the field, enabling them to align their practices with market demands.",
+	},
+	{
+		title: "Automation Integration",
+		key: "automation-integration",
+		content:
+			"AgroSync introduces a new era of efficiency by automating routine tasks. Picture a farm where machinery seamlessly integrates with AI, taking care of repetitive jobs and allowing farmers to focus on more strategic aspects of their operations.",
+	},
+];
+---
+
+<BaseLayout pageTitle='Agrosync - Stragegies'>
+	<BlogLayout
+		transitionFrom='strategies-title'
+		classes='max-w-screen-lg'
+		cover='/problems/problem-cover.jpg'
+		title='Our Solutions in Action'
+		subtitle='Cultivating Success: Strategies for a Smart Farming Future'
+	>
+		<Article>
+			<Fragment slot='title'>
+				Introduction: Harnessing Innovation for Agricultural Excellence
+			</Fragment>
+			<p class='text-xl'>
+				In the ever-evolving realm of agriculture, embracing technology
+				isn't just an option—it's a necessity. AgroSync leads the
+				charge, introducing strategies that elevate farming to new
+				heights. Picture a future where every seed planted, every drop
+				of water used, and every decision made is informed by
+				cutting-edge technology, and you’ll find AgroSync at the
+				forefront.
+			</p>
+		</Article>
+		<Article>
+			<Fragment slot='title'>
+				Strategies for a Smart Farming Future: Navigating the
+				Technological Landscape
+			</Fragment>
+		</Article>
+		<section class='grid lg:grid-cols-2 gap-6 mb-6'>
+			{
+				info.map((i) => (
+					<div
+						id={i.key}
+						class='p-6 rounded-lg bg-gradient-to-r from-gray-600/75 to-sky-700/75 backdrop-blur-lg'
+					>
+						<h4 class='text-2xl font-semibold mb-4 text-white'>
+							{i.title}
+						</h4>
+						<p class='text-xl text-white'>{i.content}</p>
+					</div>
+				))
+			}
+		</section>
+		<Article>
+			<Fragment slot='title'>
+				Conclusion: A Future Defined by Agricultural Innovation
+			</Fragment>
+			<p class='text-xl'>
+				In conclusion, AgroSync emerges as a beacon of progress,
+				offering not just solutions but transformative strategies that
+				redefine the very fabric of farming. As we embrace these
+				strategies, we embark on a journey towards a future where
+				technology and agriculture harmonize, cultivating success and
+				sustainability in every field.
+			</p>
+		</Article>
+	</BlogLayout>
+</BaseLayout>

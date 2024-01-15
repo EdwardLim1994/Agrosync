@@ -1,0 +1,93 @@
+---
+import BaseLayout from "../layouts/BaseLayout.astro";
+import BlogLayout from "../layouts/BlogLayout.astro";
+import Article from "../components/Article.astro";
+---
+
+<BaseLayout pageTitle='Agrosync - Introduction'>
+	<BlogLayout
+		transitionFrom='introduction-cover'
+		classes='max-w-screen-lg'
+		cover='/home/urban-farming.jpg'
+		title='Introduction'
+		subtitle='Unveiling the Agricultural Revolution: Harnessing AI for Smart Farming'
+	>
+		<Article>
+			<Fragment slot='title'>
+				Introduction: Cultivating Tomorrow’s Harvest
+			</Fragment>
+			<div class='flex flex-col gl:flex-row gap-x-5'>
+				<p
+					class='order-2 mt-4 lg:mt-0 lg:order-1 lg:w-1/2 text-justify first-letter:text-7xl first-letter:font-bold first-letter:float-left'
+				>
+					In the heartland of agriculture, a digital revolution is
+					quietly reshaping the landscape. AgroSync is at the
+					forefront, introducing a wave of innovation that promises to
+					transform traditional farming into a dynamic, AI-driven
+					ecosystem. Picture a farm where intelligence seamlessly
+					integrates with the rhythm of nature, optimizing every
+					aspect for a sustainable and fruitful future.
+				</p>
+				<img
+					class='order-1 lg:order-2 lg:w-1/2 rounded-lg shadow-lg'
+					src='/introduction/point-1.gif'
+					alt='Close up wheat farm gif'
+				/>
+			</div>
+		</Article>
+
+		<Article>
+			<Fragment slot='title'>
+				Problems in Agriculture: Navigating Challenges with Technology
+			</Fragment>
+			<p
+				class='text-justify first-letter:text-7xl first-letter:font-bold first-letter:float-left'
+			>
+				In the heartland of agriculture, a digital revolution is
+				Traditional farming faces an array of challenges, from resource
+				inefficiencies to the uncertainty of climate conditions.
+				AgroSync recognizes these hurdles and presents solutions that
+				harness the power of artificial intelligence to revolutionize
+				the industry.
+			</p>
+		</Article>
+		<Article>
+			<Fragment slot='title'>
+				Strategies for a Smart Farming Future: Unleashing the Power of
+				Technology
+			</Fragment>
+			<div class='flex flex-col gl:flex-row gap-x-5'>
+				<p
+					class='order-2 mt-4 lg:mt-0 lg:order-1 w-full lg:w-1/2 text-justify first-letter:text-7xl first-letter:font-bold first-letter:float-left'
+				>
+					Enter the realm of precision agriculture, where every
+					decision is informed by data-driven insights. AgroSync
+					employs smart irrigation, predictive analytics, and
+					automation integration to usher in a new era of efficiency
+					and productivity.
+				</p>
+				<img
+					class='order-1 lg:order-2 w-full lg:w-1/2 rounded-lg shadow-lg'
+					src='/introduction/point-2.gif'
+					alt='Harversting machine gif'
+				/>
+			</div>
+		</Article>
+		<Article>
+			<Fragment slot='title'>
+				Conclusion: A Glimpse into the Future of Farming
+			</Fragment>
+			<p
+				class='text-justify first-letter:text-7xl first-letter:font-bold first-letter:float-left'
+			>
+				In conclusion, AgroSync stands as a beacon of change in the
+				agricultural landscape. The fusion of agriculture and artificial
+				intelligence promises not only increased efficiency and
+				productivity but a sustainable future for farmers worldwide. As
+				we embark on this journey, the vision of smart farming becomes
+				clearer – a future where technology and nature harmoniously
+				coexist, ensuring bountiful harvests for generations to come.
+			</p>
+		</Article>
+	</BlogLayout>
+</BaseLayout>
