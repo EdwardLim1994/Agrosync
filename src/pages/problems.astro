@@ -103,11 +103,11 @@ const info = [
 
 	<script is:inline>
 		(function () {
-			const hash = window.location.hash.substr(1);
+			const hash = window.location.hash;
 
 			if (hash)
 				document
-					.getElementById(hash)
+					.querySelector(hash)
 					.scrollIntoView({ behavior: "smooth" });
 		})();
 	</script>
