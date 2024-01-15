@@ -1,5 +1,5 @@
 <template>
-	<vue-particles
+	<particles
 		:style="{
 			position: 'absolute !important',
 			top: 0,
@@ -10,21 +10,18 @@
 			margin: 0,
 			'z-index': '-20 !important',
 		}"
-		:id="id"
-		:particlesInit="particlesInit"
+		:id="id ?? ''"
+		:particlesInit="async (engine: any) => {
+		await loadSlim(engine);
+	}"
 		:options="{ fullScreen: { enable: false }, ...options }"
 	/>
 </template>
 
 <script setup lang="ts">
 	import { loadSlim } from "tsparticles-slim";
-
 	defineProps({
 		options: Object,
 		id: String,
 	});
-
-	const particlesInit = async (engine) => {
-		await loadSlim(engine);
-	};
 </script>

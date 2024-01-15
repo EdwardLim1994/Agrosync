@@ -3,8 +3,8 @@ import { Icon } from "astro-icon/components";
 
 type Links = {
 	name: string;
-	transitionName: string;
-	icon?: string;
+	transitionName?: string;
+	id?: string;
 	href: string;
 };
 
@@ -100,7 +100,9 @@ const currentPath = Astro.url.pathname;
 
 			this.openModalBtnEl = this.querySelector("#open-modal-trigger");
 			this.closeModalBtnEl = this.querySelector("#close-modal-trigger");
-			this.navigationEl = this.querySelector("#navigation");
+			this.navigationEl = this.querySelector(
+				"#navigation"
+			) as HTMLDialogElement;
 			this.navLinkEl = this.querySelectorAll(".nav-link");
 
 			this.navLinkEl.forEach((link) =>
